@@ -29,7 +29,7 @@ services:
     build: ./docker/pyspark_notebook/.
     container_name: pyspark_notebook
     ports:
-      - "8889:8888"
+      - "8888:8888"
     volumes:
       - ./work:/home/jovyan/work
       - ./work/model:/tmp/model_prediction
@@ -40,9 +40,10 @@ services:
   mongo:
     image: 'mongo:4.0.7'
     ports:
-      - '4344:27017'
+      - '27017:27017'
     volumes:
       - mongodb:/data/db
+      - ./docker/mongodb/mongod.conf:/etc/mongod.conf
     environment:
       - MONGO_INITDB_DATABASE=docker-db
       - MONGO_INITDB_ROOT_USERNAME=root
