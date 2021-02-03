@@ -36,3 +36,17 @@ services:
     environment:
       - PYSPARK_PYTHON=/usr/bin/python3
       - PYSPARK_DRIVER_PYTHON=ipython3
+
+  mongo:
+    image: 'mongo:4.0.7'
+    ports:
+      - '4344:27017'
+    volumes:
+      - mongodb:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=docker-db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+
+volumes:
+  mongodb:
