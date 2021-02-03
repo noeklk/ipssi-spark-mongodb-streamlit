@@ -3,7 +3,7 @@ from pymongo import MongoClient
 import streamlit as st
 
 client = MongoClient(
-                    host = 'mongo:27017',
+                    host = 'localhost:27017',
                     serverSelectionTimeoutMS = 3000,
                     username='root',
                     password='root'
