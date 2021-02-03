@@ -1,7 +1,6 @@
-nltk
 pandas
-numpy==1.19.3
+numpy
 matplotlib
-pyLDAvis
 streamlit
 pymongo
+jupyter
