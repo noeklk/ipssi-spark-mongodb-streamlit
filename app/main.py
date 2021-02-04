@@ -82,12 +82,9 @@ if add_selectbox == "Songs":
     }
     ).set_index('minutes')
 
-        # VIEW SONG PER DURATION
+        # VIEW SONGS PER DURATION
     st.write("Song per duration")
     st.area_chart(data=songs_per_duration)
-
-    # DATAFRAME FILTER SONGS PER GENRE
-    songs_per_genre = pd.DataFrame()
 
 #########################################################################################################################
 
@@ -121,6 +118,11 @@ if add_selectbox == "Genres":
         # DATAFRAME FILTER INSTRUMENTALNESS
     genre_instrumentalness = genre[['genre', 'instrumentalness']].set_index(['genre'])
 
+        # DATAFRAME FILTER SONGS PER GENRE
+    songs_per_genre = pd.DataFrame(
+        list(spotify_db.counts.find({ "genre": {"$ne": "all"}})), columns =["genre", "value"]
+    ).set_index('genre')
+
         # VIEW TEMPO
     st.write("Tempo per genre")     
     st.bar_chart(data=genre_tempo)   
@@ -152,6 +154,10 @@ if add_selectbox == "Genres":
         # VIEW INSTRUMENTALNESS
     st.write("Instrumentalness per genre")     
     st.bar_chart(data=genre_instrumentalness)
+
+        # VIEW SONGS PER GENRE
+    st.write("Songs per genre")
+    st.bar_chart(songs_per_genre)
 
 
 
