@@ -69,7 +69,7 @@ services:
       - mongodb:/data/db
       - ./docker/mongodb/mongod.conf:/etc/mongod.conf
     environment:
-      - MONGO_INIT_DB_DATABASE=docker-db
+      - MONGO_INITDB_DATABASE=docker-db
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
 
