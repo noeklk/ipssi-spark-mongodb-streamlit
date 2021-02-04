@@ -1,5 +1,29 @@
 version: "3.7"
 services:
+  hadoop-master:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: hadoop-master
+    restart: always
+    ports:
+      - 9870:9870
+      - 9000:9000
+    volumes:
+      - hadoop_namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop.env
+
+  hadoop-slave1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: hadoop-slave1
+    restart: always
+    volumes:
+      - hadoop_datanode:/hadoop/dfs/data
+    environment:
+      SERVICE_PRECONDITION: "hadoop-master:9870"
+    env_file:
+      - ./hadoop.env
 
   spark-master:
     image: bde2020/spark-master:3.0.1-hadoop3.2
@@ -45,9 +69,22 @@ services:
       - mongodb:/data/db
       - ./docker/mongodb/mongod.conf:/etc/mongod.conf
     environment:
-      - MONGO_INITDB_DATABASE=docker-db
+      - MONGO_INIT_DB_DATABASE=docker-db
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
 
+  mongo-express:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_AUTH_DATABASE=docker-db
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=root
+    depends_on:
+      - mongo
+    ports:
+      - "8081:8081"
+
 volumes:
   mongodb:
+  hadoop_datanode:
+  hadoop_namenode:
