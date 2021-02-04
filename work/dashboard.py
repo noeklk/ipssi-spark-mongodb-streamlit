@@ -2,11 +2,13 @@ import pandas as pd
 from pymongo import MongoClient
 import streamlit as st
 
-client = MongoClient('localhost',
-                    port=4344,
+client = MongoClient(
+                    host = 'localhost:27017',
+                    serverSelectionTimeoutMS = 3000,
                     username='root',
-                    password='root',
-                    authMechanism='SCRAM-SHA-256')
+                    password='root'
+)
+
 db = client.crimes
 table = db.documents
 
