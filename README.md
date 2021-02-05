@@ -7,7 +7,7 @@
 
 |               | Port  |                       |   |   |
 |---------------|-------|-----------------------|---|---|
-| Mongo-Express | 8081  |                       |   |   |
+| Mongo-Express | 8081  | Interface Web MongoDB                      |   |   |
 | MongoDB       | 27017 |                       |   |   |
 | Hadoop-WebUI  | 9870  |                       |   |   |
 | Hadoop-HDFS   | 9000  |                       |   |   |
