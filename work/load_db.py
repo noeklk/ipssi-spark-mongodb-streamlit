@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # packages
 from functools import reduce
 import json
@@ -19,9 +20,14 @@ client = MongoClient(
 )
 db = client.spotify
 # Read CSV
-df = spark.read.format('csv') \
-    .options(header=True, inferSchema=True) \
-    .load('data/Spotify/genres_v2.csv')
+# df = spark.read.format('csv') \
+#     .options(header=True, inferSchema=True) \
+#     .load('data/Spotify/genres_v2.csv')
+
+# Read cs from HDFS
+df = spark.read.format('csv').options(header=True, inferSchema=True).load(
+    '/home/jovyan/work/data/Spotify/genres_v2.csv')
+    
 # Clean CSV
 df = df.drop('mode') \
     .drop('key') \
