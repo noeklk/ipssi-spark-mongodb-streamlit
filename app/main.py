@@ -113,14 +113,17 @@ if add_selectbox == "Genres":
 
     # DATAFRAME GENRE
     genre = pd.DataFrame(list(spotify_db.genres.find()), columns=[
-        "genre", "tempo", "energy", "liveness", "speechiness",
+        "genre", "tempo", "energy", "liveness", "speechiness", "valence",
         "acousticness", "danceability", "loudness", "instrumentalness"
     ])
 
-    # DATAFRAME FILTER TEMPO
-    genre_tempo = genre[['genre', 'tempo']].set_index(['genre'])
+    # DATAFRAME FILTER DANCEABILITY
+    genre_danceability = genre[['genre', 'danceability']].set_index(['genre'])
 
-    # DATAFRAME FILTER TEMPO
+    # DATAFRAME FILTER VALENCE
+    genre_valence = genre[['genre', 'valence']].set_index(['genre'])
+
+    # DATAFRAME FILTER ENERGY
     genre_energy = genre[['genre', 'energy']].set_index(['genre'])
 
     # DATAFRAME FILTER LIVENESS
@@ -132,11 +135,11 @@ if add_selectbox == "Genres":
     # DATAFRAME FILTER ACOUSTICNESS
     genre_acousticness = genre[['genre', 'acousticness']].set_index(['genre'])
 
-    # DATAFRAME FILTER DANCEABILITY
-    genre_danceability = genre[['genre', 'danceability']].set_index(['genre'])
-
     # DATAFRAME FILTER LOUDNESS
     genre_loudness = genre[['genre', 'loudness']].set_index(['genre'])
+
+    # DATAFRAME FILTER TEMPO
+    genre_tempo = genre[['genre', 'tempo']].set_index(['genre'])
 
     # DATAFRAME FILTER INSTRUMENTALNESS
     genre_instrumentalness = genre[['genre', 'instrumentalness']] \
@@ -146,17 +149,21 @@ if add_selectbox == "Genres":
     st.write("Songs per genre")
     st.bar_chart(songs_per_genre)
 
-    # VIEW TEMPO
-    st.write("Tempo per genre")
-    st.bar_chart(data=genre_tempo)
+    # VIEW DANCEABILITY
+    st.write("Danceability per genre")
+    st.bar_chart(data=genre_danceability)
 
-    # VIEW TEMPO
+    # VIEW VALENCE
+    st.write("Valence per genre")
+    st.bar_chart(data=genre_valence)
+
+    # VIEW ENERGY
     st.write("Energy per genre")
     st.bar_chart(data=genre_energy)
 
-    # VIEW LIVENESS
-    st.write("Liveness per genre")
-    st.bar_chart(data=genre_liveness)
+    # VIEW INSTRUMENTALNESS
+    st.write("Instrumentalness per genre")
+    st.bar_chart(data=genre_instrumentalness)
 
     # VIEW SPEECHINESS
     st.write("Speechiness per genre")
@@ -166,14 +173,14 @@ if add_selectbox == "Genres":
     st.write("Acousticness per genre")
     st.bar_chart(data=genre_acousticness)
 
-    # VIEW DANCEABILITY
-    st.write("Danceability per genre")
-    st.bar_chart(data=genre_danceability)
-
     # VIEW LOUDNESS
     st.write("Loudness per genre")
     st.bar_chart(data=genre_loudness)
 
-    # VIEW INSTRUMENTALNESS
-    st.write("Instrumentalness per genre")
-    st.bar_chart(data=genre_instrumentalness)
+    # VIEW LIVENESS
+    st.write("Liveness per genre")
+    st.bar_chart(data=genre_liveness)
+
+    # VIEW TEMPO
+    st.write("Tempo per genre")
+    st.bar_chart(data=genre_tempo)
