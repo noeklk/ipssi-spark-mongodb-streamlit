@@ -1,3 +1,5 @@
 FROM jupyter/pyspark-notebook
 
-RUN pip install pandas numpy matplotlib streamlit pymongo nltk
+USER root
+
+RUN pip install pandas numpy matplotlib streamlit pymongo nltk pyspark
