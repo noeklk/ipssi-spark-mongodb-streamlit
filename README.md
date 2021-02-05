@@ -1,8 +1,8 @@
 ## 1. Initialisez le docker-compose 
 `docker-compose up`
 
-## 2. Insérer les données dans le HDFS
-`python load_db.py`
+## 2. Insérer les données dans la base de données mongo
+`docker exec pyspark_notebook python3 ./work/load_db.py`
 
 |               | Port  |                       |   |   |
 |---------------|-------|-----------------------|---|---|
