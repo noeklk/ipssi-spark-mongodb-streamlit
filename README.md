@@ -5,13 +5,13 @@
 `docker exec pyspark_notebook python3 ./work/load_db.py`
 
 
-|               | Port  | Description                    |   |   |
-|---------------|-------|-----------------------|---|---|
-| Mongo-Express | 8081  | Interface Web MongoDB                      |   |   |
-| MongoDB       | 27017 |                       |   |   |
-| Hadoop-WebUI  | 9870  |                       |   |   |
-| Hadoop-HDFS   | 9000  |                       |   |   |
-| Streamlit     | 8501  | Business Intelligence |   |   |
+|               | Port  | Description           | 
+|---------------|-------|-----------------------|
+| Mongo-Express | 8081  | Interface Web MongoDB |
+| MongoDB       | 27017 |                       |  
+| Hadoop-WebUI  | 9870  |                       |  
+| Hadoop-HDFS   | 9000  |                       |  
+| Streamlit     | 8501  | Business Intelligence | 
 
 ## Credits & Licence
 05/02/2021 - GPL3 Licence (Open Source)
