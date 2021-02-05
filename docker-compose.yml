@@ -27,7 +27,7 @@ services:
 
   spark-master:
     image: bde2020/spark-master:3.0.1-hadoop3.2
-    container-name: spark-master
+    container_name: spark-master
     ports:
       - "8080:8080"
       - "7077:7077"
@@ -38,7 +38,7 @@ services:
 
   spark-worker:
     image: bde2020/spark-worker:3.0.1-hadoop3.2
-    container-name: spark-worker
+    container_name: spark-worker
     depends_on:
       - spark-master
     environment:
@@ -64,7 +64,7 @@ services:
 
   mongo:
     image: 'mongo:4.0.7'
-    container-name: mongo
+    container_name: mongo
     ports:
       - '27017:27017'
     volumes:
@@ -77,7 +77,7 @@ services:
 
   mongo-express:
     image: mongo-express
-    container-name: mongo-express
+    container_name: mongo-express
     environment:
       - ME_CONFIG_MONGODB_AUTH_DATABASE=docker-db
       - ME_CONFIG_MONGODB_ADMINUSERNAME=root
@@ -89,7 +89,7 @@ services:
   
   streamlit:
     build: ./docker/streamlit
-    container-name: streamlit
+    container_name: streamlit
     command: "streamlit run main.py"
     ports:
       - "8501:8501"
