@@ -4,6 +4,7 @@
 ## 2. Insérer les données dans la base de données mongo
 `docker exec pyspark_notebook python3 ./work/load_db.py`
 
+
 |               | Port  |                       |   |   |
 |---------------|-------|-----------------------|---|---|
 | Mongo-Express | 8081  |                       |   |   |
@@ -23,4 +24,4 @@
 
 **Robert KAYAT**  - *Developer*    
 
-**Mohamed BOUROUCHE** - *Deveoper*
+**Mohamed BOUROUCHE** - *Developer*
