@@ -1,4 +1,4 @@
-FROM spark-base:latest
+FROM bde2020/spark-master:3.0.1-hadoop3.2
 
 COPY start-master.sh /
 
@@ -7,5 +7,3 @@ ENV SPARK_MASTER_WEBUI_PORT 8080
 ENV SPARK_MASTER_LOG /spark/logs
 
 EXPOSE 8080 7077 6066
-
-CMD ["/bin/bash", "/start-master.sh"]

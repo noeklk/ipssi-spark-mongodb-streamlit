@@ -1,7 +1,7 @@
 nltk
-pandas
 numpy
-matplotlib
+pandas
 pyLDAvis
-pymongo
+matplotlib
 pyspark
+pymongo
