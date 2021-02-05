@@ -5,7 +5,7 @@
 `docker exec pyspark_notebook python3 ./work/load_db.py`
 
 
-|               | Port  |                       |   |   |
+|               | Port  | Description                    |   |   |
 |---------------|-------|-----------------------|---|---|
 | Mongo-Express | 8081  | Interface Web MongoDB                      |   |   |
 | MongoDB       | 27017 |                       |   |   |
