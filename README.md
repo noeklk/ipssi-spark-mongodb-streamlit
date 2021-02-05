@@ -14,7 +14,7 @@
 | Streamlit     | 8501  | Business Intelligence |   |   |
 
 ## Credits & Licence
-29/05/2020 - GPL3 Licence (Open Source)
+05/02/2021 - GPL3 Licence (Open Source)
 
 # Team
 
